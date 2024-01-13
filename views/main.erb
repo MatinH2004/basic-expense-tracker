@@ -1,0 +1,40 @@
+<h1 class="title">Basic Expense Tracker</h1>
+<div class="main">
+  <section>
+    <h2>You've Spent: $<%= session[:total_spent] %></h2>
+    <p class="limit">Limit: $<%= session[:limit] %></p>
+  </section>
+  <a class="button" href="/new">Add transaction</a>
+  <a class="button" href="/change_limit">Change limit</a>
+</div>
+
+<div>
+  
+</div>
+
+<br>
+
+<div>
+  <table>
+    <tr>
+      <th>Expense</th>
+      <th>Amount $</th>
+      <th>Category</th>
+      <th>Date</th>
+      <th>Delete Item</th>
+    </tr>
+    <% session[:expenses].list.each do |item| %>
+      <tr>
+        <td><%= item[:name] %></td>
+        <td><%= item[:amount] %></td>
+        <td><%= item[:category] %></td>
+        <td><%= item[:date] %></td>
+        <td>
+          <form method="post" action="/delete/<%= item[:id] %>">
+            <button type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

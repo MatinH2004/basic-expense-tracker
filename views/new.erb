@@ -1,0 +1,48 @@
+<h1 class="title">Add a new expense</h1>
+
+<form method="post" action="/new/expense" class="main">
+  <div>
+    <h3>Valid Categories:</h3>
+    <ol>
+      <% session[:categories].each do | category| %>
+        <li><%= category %></li>
+      <% end %>
+    </ol>
+  </div>
+
+  <div>
+    <label class="inputs" for="name">Name:</label><br>
+    <input id="name" name="name" placeholder="Enter name of expense" />
+  </div>
+  
+  <div>
+    <label class="inputs" for="amount">Amount:</label><br>
+    <input id="amount" name="amount" placeholder="$" />
+  </div>
+
+  <div>
+    <label class="inputs" for="category">Category:</label><br>
+    <input id="category" name="category" placeholder="Select: 1, 2, 3..." />
+  </div>
+
+  <button type="submit">Add Expense</button>
+</form>
+
+<div class="main">
+  <h3>Add new category:</h3>
+  <form method="post" action="/new/category">
+
+    <div>
+      <label class="inputs" for="category">Name:</label><br>
+      <input id="category" name="category" placeholder="ex. rent">
+    </div>
+
+    <button type="submit">Add Category</button>
+
+  </form>
+  
+  <div>
+    <p><a class="button" href="/">Main Page</a></p>
+  </div>
+</div>
+
