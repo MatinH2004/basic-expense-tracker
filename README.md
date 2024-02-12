@@ -32,21 +32,21 @@ Make sure you have the following installed on your machine:
 
 Clone the repository:
 
-`git clone https://github.com/your-username/basic-expense-tracker.git`
+`$ git clone https://github.com/your-username/basic-expense-tracker.git`
 
 Navigate to the project directory:
 
-`cd ./basic-expense-tracker` (name of folder may vary)
+`$ cd ./basic-expense-tracker` (name of folder may vary)
 
 ### Install dependencies:
 
-`bundle install`
+`$ bundle install`
 
 ## Usage
 
 Start the application:
 
-`ruby app.rb`
+`$ ruby app.rb`
 
 Open your web browser and go to `http://localhost:4567`. Start managing your expenses! Enjoy :)
 
