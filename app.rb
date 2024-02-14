@@ -16,7 +16,31 @@ def display_limit_message
   end
 end
 
+def current_date
+  Time.now.to_s[0, 10]
+end
+
+get "/welcome" do
+  erb :welcome
+end
+
+post "/welcome" do
+  username = params[:username]
+
+  if username.nil? || username.strip.empty?
+    session[:message] = 'Invalid input. Please enter your name.'
+    status 422
+    erb :welcome
+  else
+    session[:username] = params[:username].capitalize
+    redirect "/"
+  end
+end
+
 get "/" do
+  redirect "/welcome" unless session[:username]
+  session[:message] = "Welcome #{session[:username]}! Signed in on #{current_date}"
+
   unless session[:expenses]
     session[:expenses] = Expenses.new
 
@@ -98,4 +122,9 @@ post "/change_limit" do
     session[:message] = "=> Invalid input. Try again."
     erb :change_limit
   end
+end
+
+post "/signout" do
+  session.delete(:username)
+  redirect "/"
 end
