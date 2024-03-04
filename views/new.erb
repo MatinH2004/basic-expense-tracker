@@ -4,11 +4,13 @@
   <div>
     <h3>Valid Categories:</h3>
     <ol>
-      <% session[:categories].each do | category| %>
-        <li><%= category %></li>
+      <% @categories.each do | category| %>
+        <li><%= category[:name] %></li>
       <% end %>
     </ol>
   </div>
+
+  <p> Note: Amounts cannot be larger than 8 digits </p>
 
   <div>
     <label class="inputs" for="name">Name:</label><br>
