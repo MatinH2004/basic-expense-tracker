@@ -1,8 +1,6 @@
 require "sinatra"
 require "tilt/erubis"
-require "pry"
 
-require_relative "expense_class"
 require_relative "database_persistence"
 
 configure do
@@ -43,9 +41,7 @@ helpers do
   end
 end
 
-
 def display_limit_message
-  binding.pry
   session[:limit_message] = "You have exceeded your limit." if total_amount > limit
 end
 
@@ -76,48 +72,8 @@ before do
   @storage = DatabasePersistence.new(logger)
 end
 
-def current_date
-  Time.now.to_s[0, 10]
-end
-
-get "/welcome" do
-  erb :welcome
-end
-
-post "/welcome" do
-  username = params[:username]
-
-  if username.nil? || username.strip.empty?
-    session[:message] = 'Invalid input. Please enter your name.'
-    status 422
-    erb :welcome
-  else
-    session[:username] = params[:username].capitalize
-    redirect "/"
-  end
-end
-
 get "/" do
-<<<<<<< HEAD
-  redirect "/welcome" unless session[:username]
-  session[:message] = "Welcome #{session[:username]}! Signed in on #{current_date}"
-
-  unless session[:expenses]
-    session[:expenses] = Expenses.new
-
-    # test data
-    session[:expenses].new_expense('Family Dinner', 134.99, 1)
-    session[:expenses].new_expense('Winter Tires', 549.99, 3)
-    session[:expenses].new_expense('S&P 500', 200.00, 4)
-
-    session[:categories] = session[:expenses].categories
-  end
-  
-  session[:limit] = session[:expenses].limit
-  session[:total_spent] = session[:expenses].total_list_amount
-=======
   @expenses = @storage.all_expenses
->>>>>>> dev
   display_limit_message
   erb :main
 end
@@ -185,13 +141,6 @@ post "/change_limit" do
   end
 end
 
-<<<<<<< HEAD
-post "/signout" do
-  session.delete(:username)
-  redirect "/"
-end
-=======
 after do
   @storage.disconnect
 end
->>>>>>> dev
