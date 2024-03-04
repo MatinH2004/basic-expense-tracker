@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Welcome to the Expense Tracker! This simple yet powerful application helps you organize your expenses. It is built using Ruby, Sinatra, and ERB templates.
+Welcome to the Expense Tracker! This simple yet powerful application helps you organize your expenses. It is built using Ruby, Sinatra, PostgreSQL and ERB templates.
 
 ## Features
 
@@ -23,6 +23,8 @@ Make sure you have the following installed on your machine:
 - Ruby (3.2.0)
 
 - Sinatra gem
+
+- PostgreSQL (pg) gem
 
 - Bundler gem
 
