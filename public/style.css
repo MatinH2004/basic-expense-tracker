@@ -1,0 +1,92 @@
+.title {
+  display: grid;
+  place-items: center;
+  height: 10vh; /* Ensure full viewport height */
+  margin: 0; /* Remove default body margin */
+}
+
+.main {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.message {
+  background-color: #d1cfcf;
+  font-weight: bold;
+  padding: 15px;
+}
+
+.limit {
+  font-weight: semi-bold;
+  font-size: 20px;
+  font-style: italic;
+}
+
+.limit-message {
+  background-color: #fa4d4d;
+  font-weight: bold;
+  padding: 15px;
+}
+
+.box {
+  width: 200px;
+  background-color: #f0f0f0;
+  border: 2px solid #333;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+a.button {
+  display: inline-block;
+  padding: 10px 20px;
+  color: white;
+  background-color: black;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+a.button:hover {
+  color: black;
+  background-color: white;
+  font-weight: bold;
+}
+
+button {
+  display: inline-block;
+  padding: 10px 10px;
+  color: white;
+  background-color: red;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+  color: black;
+  background-color: white;
+  font-weight: bold;
+}
+
+.inputs {
+  font-size: 19px;
+}
