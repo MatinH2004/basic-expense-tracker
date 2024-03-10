@@ -2,12 +2,12 @@
 
 <form method="post" action="/new/expense" class="main">
   <div>
-    <h3>Valid Categories:</h3>
-    <ol>
-      <% @categories.each do | category| %>
-        <li><%= category[:name] %></li>
+    <dl>
+      <dt><h3>Valid Categories:<h3></dt>
+      <% @categories.each do |category| %>
+        <dd><%= "#{category[:id]}. #{category[:name]}" %></dd>
       <% end %>
-    </ol>
+    </dl>
   </div>
 
   <p> Note: Amounts cannot be larger than 8 digits </p>
